@@ -1,0 +1,101 @@
+---
+title: "ds202_hw2"
+author: "Syed Hasan GitHub @ shasan2519"
+date: "2/7/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+print("Problem 1")
+farenheit <- c(24,15)
+celcius <- (farenheit-32)*(5/9)
+celcius
+```
+```{r}
+print ("Problem 2")
+vec200 <- rep(c(3,1),100)
+vec200
+
+```
+
+```{r}
+print("Problem 3")
+numPerfect1 <- 0
+for (i in 1:2001){sqr <- sqrt(i)
+if(sqr==round(sqr)){numPerfect1<-numPerfect1+1}
+}
+numPerfect1
+
+
+
+```
+
+
+
+
+
+```{r}
+print("cars 1")
+library(ggplot2)
+mpg
+mpgA<- mpg[order(-mpg$hwy),]
+mpgA
+```
+```{r}
+best3 <- head(mpgA,3)
+best3
+```
+VW's Jetta 1999 33 MPG, New Beetle 1999 35 MPG and New Beetle 1999 Auto 29 MPG, are the best MPG performing models according to the data.
+
+
+
+```{r}
+
+print("cars 2")
+mpgB <- mpg[mpg$class == "compact",]
+mpgB
+```
+
+
+
+```{r}
+numCompact<-nrow(mpgB)
+numCompact
+```
+According to data provided, there are 47 different car listed as compact class cars.
+
+```{r}
+plot(mpg$hwy,mpg$cty,data=mpg)
+```
+No explanaition can be gathered
+
+
+```{r}
+library(ggplot2)
+MY1999<-mpg[mpg$year==1999,]
+MY2008<-mpg[mpg$year==2008,]
+
+c(mean(MY1999$hwy),mean(MY2008$hwy))
+c(mean(MY1999$cty),mean(MY2008$cty))
+
+c(median(MY1999$cty),median(MY2008$cty))
+
+c(max(MY1999$hwy),max(MY2008$hwy))
+
+c(max(MY1999$cty),max(MY2008$cty))
+
+c(min(MY1999$hwy),min(MY2008$hwy))
+
+c(min(MY1999$cty),min(MY2008$cty))
+
+
+par(mfrow=c(1,2))
+hist(MY1999$hwy,main="Histogram for 1999 HWY MPG's")
+hist(MY2008$hwy,main="Histogram for 2008 HWY MPG's")
+
+```
+
